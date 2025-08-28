@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Digital Mission Toolkit — Serving Churches in the Great Commission</title>
+  <meta name="description" content="A Christ-centered, done-for-you digital ministry service. Share the Gospel online, nurture discipleship, and relieve staff workload with a predictable monthly plan."/>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121833;
+      --muted: #94a3b8;
+      --brand: #6ee7b7;
+      --brand-2: #60a5fa;
+      --text: #e5e7eb;
+      --accent: #fbbf24;
+      --danger: #ef4444;
+      --ok: #22c55e;
+      --shadow: 0 10px 30px rgba(2, 6, 23, 0.55);
+      --radius: 18px;
+    }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: var(--brand-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 24px; }
+    .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 36px; align-items: center; padding: 40px 0 10px; }
+    .hero-card { background: linear-gradient(135deg, #162042, #0f1530); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius); padding: 28px; box-shadow: var(--shadow); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; background: rgba(110,231,183,0.12); color: #d1fae5; border: 1px solid rgba(110,231,183,0.25); padding: 6px 10px; border-radius: 999px; font-size: 12px; letter-spacing: .02em; text-transform: uppercase; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(32px, 4vw, 48px); line-height: 1.05; margin: 16px 0 12px; }
+    .lede { font-size: 18px; color: var(--muted); margin: 0 0 22px; }
+    .cta-row { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 18px; border-radius: 12px; font-weight: 700; border: 1px solid transparent; cursor: pointer; }
+    .btn-primary { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: #0b1020; box-shadow: 0 10px 24px rgba(96,165,250,.25), inset 0 -2px 0 rgba(0,0,0,.15); }
+    .btn-primary:hover { filter: brightness(1.04); }
+    .btn-secondary { background: #0b122d; border-color: rgba(255,255,255,0.06); color: #cbd5e1; }
+    .btn-secondary:hover { background: #0d1434; }
+    .tiny { font-size: 12px; color: var(--muted); }
+    .trust { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 26px 0 0; opacity: .85; }
+    .trust div { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 10px 14px; text-align: center; font-size: 13px; }
+    .section { padding: 40px 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { background: var(--card); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
+    .card h3 { font-family: Georgia, "Times New Roman", serif; margin: 0 0 8px; font-size: 20px; }
+    .card p { margin: 0; color: var(--muted); }
+    .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: center; }
+    .list { margin: 8px 0 0; padding: 0; list-style: none; }
+    .list li { margin: 10px 0; display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: start; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; background: rgba(99,102,241,.18); border: 1px solid rgba(99,102,241,.25); color: #c7d2fe; font-size: 12px; }
+    .plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .plan { position: relative; background: linear-gradient(180deg, #141a38, #0e1330); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
+    .plan .popular { position: absolute; top: 14px; right: 14px; }
+    .price { font-size: 36px; font-weight: 800; margin: 10px 0; }
+    .price small { font-size: 14px; color: var(--muted); font-weight: 500; }
+    .plan ul { list-style: none; padding: 0; margin: 16px 0 0; }
+    .plan li { margin: 10px 0; color: var(--muted); }
+    .roi { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: stretch; }
+    .roi .calc { background: var(--card); border-radius: var(--radius); border: 1px solid rgba(255,255,255,.08); box-shadow: var(--shadow); padding: 18px; }
+    label { display: block; font-weight: 600; margin: 10px 0 6px; }
+    input[type="number"], input[type="text"], select { width: 100%; padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,.15); background: #0b122d; color: #e5e7eb; }
+    .stat { background: linear-gradient(135deg, rgba(110,231,183,0.15), rgba(96,165,250,0.15)); border: 1px solid rgba(255,255,255,.08); padding: 18px; border-radius: var(--radius); }
+    .stat h4 { margin: 0 0 8px; }
+    .testimonials { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .quote { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 18px; }
+    .quote p { margin: 0 0 10px; color: var(--muted); }
+    .faq { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    details { background: var(--card); border: 1px solid rgba(255,255,255,.08); border-radius: var(--radius); padding: 14px 16px; }
+    summary { cursor: pointer; font-weight: 700; }
+    .footer { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: center; padding: 30px 0 60px; color: var(--muted); }
+    .logo { font-weight: 900; letter-spacing: .5px; }
+    @media (max-width: 980px){
+      .hero { grid-template-columns: 1fr; }
+      .grid-3, .plans, .testimonials { grid-template-columns: 1fr; }
+      .feature-row, .roi, .faq, .trust { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container hero">
+    <div>
+      <span class="eyebrow">Rooted in Scripture • Serving the Great Commission • Stewardship‑wise</span>
+      <h1>Digital Mission Toolkit
+        <span style="display:block;font-size:.6em;font-weight:500;color:var(--muted);margin-top:6px">Your fractional communications team for Christ‑centered churches</span>
+      </h1>
+      <p class="lede">Helping churches proclaim Christ online: we publish your weekly sermon, send a shepherding email, and keep giving pathways simple—so leaders can focus on people and discipleship.</p>
+      <div class="cta-row">
+        <a href="#plans" class="btn btn-primary">See Plans & Pricing</a>
+        <a href="#roi" class="btn btn-secondary">Estimate Your Stewardship Impact</a>
+        <span class="tiny">Concierge onboarding • No long‑term contract • Ministry‑minded billing</span>
+      </div>
+      <div class="trust">
+        <div>Website hosting & security</div>
+        <div>Weekly sermon → discipleship content</div>
+        <div>Shepherding email & prayer prompts</div>
+        <div>Integrated online giving</div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3 style="margin:0 0 8px">Why churches choose us</h3>
+      <ul class="list">
+        <li><span>✝️</span><span><strong>Ministry over machinery.</strong> We handle the tech so you can teach, shepherd, and pray.</span></li>
+        <li><span>🕊️</span><span><strong>One Gospel message, many touchpoints.</strong> Sunday’s sermon becomes weekday discipleship: blog, email, and social.</span></li>
+        <li><span>🧺</span><span><strong>Faithful stewardship.</strong> A predictable fee that protects staff time and avoids piecemeal costs.</span></li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <section class="container section">
+      <div class="grid-3">
+        <div class="card">
+          <h3>Website & Care</h3>
+          <p>Fast, secure hosting, updates, uptime monitoring, and content publishing. Send us your sermon—we handle the rest.</p>
+        </div>
+        <div class="card">
+          <h3>Sermon → Discipleship Content</h3>
+          <p>Transcription + editing + SEO blog + pull quotes + social snippets rooted in Scripture. Keep the Gospel alive Monday–Saturday.</p>
+        </div>
+        <div class="card">
+          <h3>Giving & Shepherding Email</h3>
+          <p>Integrated online giving and a consistent weekly email that highlights next steps, small groups, prayer requests, and service opportunities.</p>
+        </div>
+      </div>
+    </section>
+    <section class="container section feature-row">
+      <div class="card">
+        <h3 style="margin-top:0">Designed for Christian Ministry</h3>
+        <ul class="list">
+          <li><span>📖</span><span><strong>Scripture‑first workflow:</strong> your doctrinal voice, our editorial polish. You approve before publishing.</span></li>
+          <li><span>🫶</span><span><strong>Care pathways:</strong> prayer request intake, baptism/next steps forms, and follow‑up tags.</span></li>
+          <li><span>🧑‍🤝‍🧑</span><span><strong>Volunteer‑friendly:</strong> we equip your team with simple checklists and training videos.</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0">Content Integrity Pledge</h3>
+        <p class="tiny">We honor the theological voice of each church. Nothing posts without your review.</p>
+        <ul class="list" style="margin-top:8px">
+          <li><span>📝</span><span>Pastor approval on all sermon summaries</span></li>
+          <li><span>🔎</span><span>Accuracy checks for Scripture citations</span></li>
+          <li><span>🧭</span><span>Language guided by your style guide (reverent, invitational, clear)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="container section" id="plans">
+      <span class="badge">Tiered Plans</span>
+      <h2 style="margin:8px 0 6px">Simple plans that scale with your church</h2>
+      <p class="lede">All plans include concierge support and month‑to‑month flexibility. The Mission plan matches the full Digital Mission Toolkit recommended in our strategy. Prices available in CAD or USD.</p>
+      <div class="plans">
+        <div class="plan">
+          <h3 style="margin:0">Essentials</h3>
+          <div class="price">$149 <small>/mo</small></div>
+          <ul>
+            <li>Website hosting & updates</li>
+            <li>Professional church email</li>
+            <li>Basic support</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <div class="popular badge">Most Popular</div>
+          <h3 style="margin:0">Mission — Digital Mission Toolkit</h3>
+          <div class="price">$399 <small>/mo</small></div>
+          <ul>
+            <li>Full website & content management</li>
+            <li>Weekly sermon → discipleship content</li>
+            <li>Shepherding email & prayer prompts</li>
+            <li>Integrated online giving</li>
+          </ul>
+        </div>
+        <div class="plan">
+          <h3 style="margin:0">Multiplication</h3>
+          <div class="price">$699 <small>/mo</small></div>
+          <ul>
+            <li>Everything in Mission</li>
+            <li>Custom graphics & video editing</li>
+            <li>Advanced SEO & outreach campaigns</li>
+            <li>Dedicated account manager</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section roi" id="roi">
+      <div class="calc">
+        <h3 style="margin-top:0">Stewardship Estimator</h3>
+        <p class="tiny">This simple calculator helps visualize how a consistent, Scripture‑anchored digital rhythm can affect participation and giving.</p>
+        <label for="members">Average weekly attenders</label>
+        <input type="number" id="members" placeholder="e.g. 150" />
+        <label for="giving">Average weekly giving per person ($)</label>
+        <input type="number" id="giving" placeholder="e.g. 40" />
+      </div>
+      <div class="stat">
+        <h4>Potential Impact</h4>
+        <p class="tiny">Churches that adopt online giving see a 32% increase in donations. A unified strategy often pays for itself through increased generosity and engagement.</p>
+      </div>
+    </section>
+  </main>
+  <footer class="container footer" id="contact">
+    <div>
+      <div class="logo">Digital Mission Toolkit</div>
+      <div class="tiny">A Christ‑centered, done‑for‑you digital ministry service for churches.</div>
+    </div>
+    <div style="text-align:right">
+      <div class="tiny">Questions? <a href="mailto:ken@gentoolinkwebservices.com">ken@gentoolinkwebservices.com</a> • <a href="#">Privacy</a> • <a href="#">Terms</a></div>
+    </div>
+  </footer>
+</body>
+</html>
