@@ -190,6 +190,7 @@
       <div class="stat">
         <h4>Potential Impact</h4>
         <p class="tiny">Churches that adopt online giving see a 32% increase in donations. A unified strategy often pays for itself through increased generosity and engagement.</p>
+        <div id="estimator-results"></div>
       </div>
     </section>
   </main>
@@ -202,5 +203,37 @@
       <div class="tiny">Questions? <a href="mailto:ken@gentoolinkwebservices.com">ken@gentoolinkwebservices.com</a> • <a href="#">Privacy</a> • <a href="#">Terms</a></div>
     </div>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const membersInput = document.getElementById('members');
+      const givingInput = document.getElementById('giving');
+      const resultsDiv = document.getElementById('estimator-results');
+
+      function calculateAndDisplay() {
+        const members = parseFloat(membersInput.value) || 0;
+        const giving = parseFloat(givingInput.value) || 0;
+
+        if (members > 0 && giving > 0) {
+          const weeklyGiving = members * giving;
+          const potentialIncrease = weeklyGiving * 0.32;
+          const newWeeklyGiving = weeklyGiving + potentialIncrease;
+
+          resultsDiv.innerHTML = `
+            <p>Current weekly giving: <strong>$${weeklyGiving.toFixed(2)}</strong></p>
+            <p>Potential increase with online giving: <strong>$${potentialIncrease.toFixed(2)}</strong></p>
+            <p>New estimated weekly giving: <strong>$${newWeeklyGiving.toFixed(2)}</strong></p>
+          `;
+        } else {
+          resultsDiv.innerHTML = '<p>Enter both attenders and average giving to see the potential impact.</p>';
+        }
+      }
+
+      membersInput.addEventListener('input', calculateAndDisplay);
+      givingInput.addEventListener('input', calculateAndDisplay);
+
+      // Initial calculation
+      calculateAndDisplay();
+    });
+  </script>
 </body>
 </html>
