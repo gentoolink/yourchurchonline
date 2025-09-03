@@ -102,8 +102,8 @@
       </h1>
       <p class="lede">Helping churches proclaim Christ online: we publish your weekly sermon, send a shepherding email, and keep giving pathways simple—so leaders can focus on people and discipleship.</p>
       <div class="cta-row">
-        <a href="#plans" class="btn btn-primary">See Plans & Pricing</a>
-        <a href="#roi" class="btn btn-secondary">Estimate Your Stewardship Impact</a>
+        <a href="https://calendar.app.google/Xr3FW76VyQKXJ8ky7" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Schedule a Call</a>
+        <a href="#plans" class="btn btn-secondary">See Plans & Pricing</a>
         <span class="tiny">Concierge onboarding • No long‑term contract • Ministry‑minded billing</span>
       </div>
       <ul class="trust">
@@ -286,38 +286,48 @@
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const membersInput = document.getElementById('members')
-      const givingInput = document.getElementById('giving')
-      const resultsDiv = document.getElementById('estimator-results')
+      // --- Constants ---
+      const INCREASE_RATE = 0.32; // 32% increase seen with online giving.
+
+      // --- DOM Elements ---
+      const membersInput = document.getElementById('members');
+      const givingInput = document.getElementById('giving');
+      const resultsDiv = document.getElementById('estimator-results');
+
+      // --- Formatters ---
       const currencyFormatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
         currency: 'USD',
       });
 
-      function calculateAndDisplay() {
+      // --- Main Function ---
+      function updateEstimator() {
         const members = parseFloat(membersInput.value) || 0;
         const giving = parseFloat(givingInput.value) || 0;
 
-        if (members > 0 && giving > 0) {
-          const weeklyGiving = members * giving;
-          const potentialIncrease = weeklyGiving * 0.32;
-          const newWeeklyGiving = weeklyGiving + potentialIncrease;
-
-          resultsDiv.innerHTML = `
-            <p>Current weekly giving: <strong>${currencyFormatter.format(weeklyGiving)}</strong></p>
-            <p>Potential increase with online giving: <strong>+${currencyFormatter.format(potentialIncrease)}</strong></p>
-            <p>New estimated weekly giving: <strong>${currencyFormatter.format(newWeeklyGiving)}</strong></p>
-          `;
-        } else {
+        // Guard clause: if inputs are invalid, show default message and exit.
+        if (members <= 0 || giving <= 0) {
           resultsDiv.innerHTML = '<p>Enter both attenders and average giving to see the potential impact.</p>';
+          return;
         }
+
+        const weeklyGiving = members * giving;
+        const potentialIncrease = weeklyGiving * INCREASE_RATE;
+        const newWeeklyGiving = weeklyGiving + potentialIncrease;
+
+        resultsDiv.innerHTML = `
+          <p>Current weekly giving: <strong>${currencyFormatter.format(weeklyGiving)}</strong></p>
+          <p>Potential increase with online giving: <strong>+${currencyFormatter.format(potentialIncrease)}</strong></p>
+          <p>New estimated weekly giving: <strong>${currencyFormatter.format(newWeeklyGiving)}</strong></p>
+        `;
       }
 
-      membersInput.addEventListener('input', calculateAndDisplay);
-      givingInput.addEventListener('input', calculateAndDisplay);
+      // --- Event Listeners & Initial Call ---
+      membersInput.addEventListener('input', updateEstimator);
+      givingInput.addEventListener('input', updateEstimator);
 
       // Initial calculation
-      calculateAndDisplay();
+      updateEstimator();
     });
   </script>
 </body>
