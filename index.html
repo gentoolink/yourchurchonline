@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Digital Mission Toolkit — Serving Churches in the Great Commission</title>
   <meta name="description" content="A Christ-centered, done-for-you digital ministry service. Share the Gospel online, nurture discipleship, and relieve staff workload with a predictable monthly plan."/>
+  <meta name="geo.region" content="CA-BC" />
+  <meta name="geo.placename" content="Vanderhoof" />
   <style>
     :root {
       --bg: #0b1020;
@@ -39,6 +41,7 @@
     .trust li { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 10px 14px; text-align: center; font-size: 13px; }
     .section { padding: 40px 0; }
     .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .text-center { text-align: center; }
     /* Panel/Card System */
     .hero-card, .card, .plan, .roi .calc, .stat, .quote, details {
       border-radius: var(--radius);
@@ -128,6 +131,39 @@
       }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Digital Mission Toolkit",
+    "serviceType": "Digital Ministry Services",
+    "description": "A Christ-centered, done-for-you digital ministry service. We publish your weekly sermon, send a shepherding email, and keep giving pathways simple—so leaders can focus on people and discipleship.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Your Church Online",
+      "url": "https://yourchurchonline.church",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Vanderhoof",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      }
+    },
+    "areaServed": [
+      { "@type": "Country", "name": "Canada" },
+      { "@type": "Country", "name": "United States" }
+    ],
+    "offers": {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "The Digital Mission Toolkit"
+      },
+      "price": "399",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
 </head>
 <body>
   <header class="container hero">
@@ -196,10 +232,10 @@
     </section>
 
     <section class="container section">
-      <h2 style="text-align:center;">Digital Mission Toolkit – Your Church, Online Every Week</h2>
-      <p class="lede" style="text-align:center; max-width: 720px; margin: 12px auto 24px;">Your church’s message deserves to be heard beyond Sunday morning. With our Digital Mission Toolkit, we keep your website fresh, your sermons searchable, and your members connected—without adding more to your plate.</p>
+      <h2 class="text-center">Digital Mission Toolkit – Your Church, Online Every Week</h2>
+      <p class="lede text-center" style="max-width: 720px; margin: 12px auto 24px;">Your church’s message deserves to be heard beyond Sunday morning. With our Digital Mission Toolkit, we keep your website fresh, your sermons searchable, and your members connected—without adding more to your plate.</p>
       
-      <h3 style="text-align:center; margin-bottom: 24px;">What’s Included Every Week</h3>
+      <h3 class="text-center" style="margin-bottom: 24px;">What’s Included Every Week</h3>
       <div class="features-grid">
         <div class="fade-in">
           <h4><span aria-hidden="true">🖥️ </span>Website Updates</h4>
@@ -229,7 +265,7 @@
       <h2 style="margin:8px 0 6px">Simple, All-Inclusive Pricing</h2>
       <p class="lede">The Digital Mission Toolkit is our core package. Add on services as your ministry grows. Prices available in CAD or USD.</p>
       
-      <div style="max-width: 720px; margin: 24px auto;">
+      <div class="text-center" style="max-width: 720px; margin: 24px auto;">
         <div class="plan">
           <h3>The Digital Mission Toolkit</h3>
           <div class="price">$399 <small>/month</small></div>
@@ -245,7 +281,7 @@
         </div>
       </div>
 
-      <h2 style="text-align:center; margin: 48px 0 24px;">Optional Add-Ons</h2>
+      <h2 class="text-center" style="margin: 48px 0 24px;">Optional Add-Ons</h2>
       <div class="grid-3">
         <div class="card fade-in">
           <h3>Full Newsletter Management</h3>
@@ -282,7 +318,7 @@
     </section>
 
     <section class="container section">
-      <h2 style="text-align:center; margin-bottom: 24px;">Frequently Asked Questions</h2>
+      <h2 class="text-center" style="margin-bottom: 24px;">Frequently Asked Questions</h2>
       <div class="faq">
         <details>
           <summary>What is your statement of faith?</summary>
@@ -318,6 +354,9 @@
       </p>
       <p style="margin: 0 0 10px;">
         📍 Vanderhoof, BC, Canada | 🌐 yourchurchonline.church
+      </p>
+      <p style="margin: 0 0 10px;">
+        Proudly serving churches across Canada and the United States.
       </p>
       <p style="margin: 0;">
         👉 Looking to strengthen your church’s digital presence? <a href="https://calendar.app.google/Xr3FW76VyQKXJ8ky7" target="_blank" rel="noopener noreferrer">Schedule a Call</a>
