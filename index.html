@@ -132,6 +132,26 @@
     }
     #back-to-top.show { opacity: 1; visibility: visible; }
     #back-to-top:hover { background: var(--brand); text-decoration: none; }
+    /* Hero Load Animation */
+    @keyframes fadeIn-up {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .hero-content > * {
+      opacity: 0; /* Initial state for animation */
+      animation: fadeIn-up 0.7s ease-out forwards;
+    }
+    .hero-content .eyebrow { animation-delay: 0.1s; }
+    .hero-content h1 { animation-delay: 0.2s; }
+    .hero-content .launch-announcement { animation-delay: 0.3s; }
+    .hero-content .lede { animation-delay: 0.4s; }
+    .hero-content .cta-row { animation-delay: 0.5s; }
     /* Scroll Animation */
     .fade-in {
       opacity: 0;
